@@ -1,15 +1,13 @@
-window.addEvent('domready', function() {
-
-  var accordion = new Accordion('a.menuitem', 'ul.submenu', {
-    opacity: false,
-    onActive: function(toggler, element){
-      toggler.addClass('current');
-      element.addClass('current');
-    },
-    onBackground: function(toggler, element){
-      toggler.removeClass('current');
-      element.removeClass('current');
-    }
-  }, $('section-menu'));
+jQuery(function ($) {
+    $("#section-menu")
+        .accordion({
+            "header": "a.menuitem"
+        })
+        .bind("accordionchangestart", function(e, data) {
+            data.newHeader.next().andSelf().addClass("current");
+            data.oldHeader.next().andSelf().removeClass("current");
+        })
+        .find("a.menuitem:first").addClass("current")
+        .next().addClass("current");
 
 });
