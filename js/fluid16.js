@@ -45,7 +45,6 @@ jQuery(function ($) {
 
             $("#toggle-" + this)
                 .bind("click", function(e) {
-                    console.log(e);
                     if ($(this).hasClass('hidden')){
                         $(this).removeClass('hidden').addClass('visible');
                         el.slideDown();
